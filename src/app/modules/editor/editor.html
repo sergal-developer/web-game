@@ -1,1 +1,71 @@
-Editor
+<div class="card">
+
+   <header>
+      <h1>Tile Map Editor</h1>
+      <div>
+         <button class="button-as-link" >Load Tile Template</button>
+         <button class="button-as-link" >Save Map</button>
+         <button class="button-as-link" >Load Map</button>
+         <button class="button-as-link" (click)="viewProperties()" >View Properties</button>
+         <button class="button-as-link" (click)="clearCanvas()">Clear Canvas</button>
+         <button class="primary-button" (click)="exportImage()">Export Image</button>
+      </div>
+   </header>
+   <div class="card_body">
+      <aside>
+         <label>Grid Size</label>
+         <div class="collection">
+            <div (click)="setSizeCanvas('15x15')">15x15</div>
+            <div (click)="setSizeCanvas('25x15')">20x15</div>
+            <div (click)="setSizeCanvas('25x25')">25x25</div>
+         </div>
+         <label>Tiles</label>
+         <div class="tileset-container">
+            <img id="tileset-source" crossorigin />
+            <div class="tileset-container_selection"></div>
+         </div>
+      </aside>
+      <div class="card_right-column">
+         <!-- The main canvas -->
+         <canvas width="680" height="480">
+         </canvas>
+         <p class="instructions">
+            <strong>Click</strong> to paint.
+            <strong>Shift+Click</strong> to remove.
+         </p>
+         <!-- UI for layers -->
+         <div>
+            <label>Editing Layer:</label>
+            <ul class="layers">
+               <li><button (click)="setLayer(2)" class="layer" tile-layer="2">Top Layer</button></li>
+               <li><button (click)="setLayer(1)" class="layer" tile-layer="1">Middle Layer</button></li>
+               <li><button (click)="setLayer(0)" class="layer" tile-layer="0">Bottom Layer</button></li>
+            </ul>
+         </div>
+      </div>
+   </div>
+
+   <div class="properties" *ngIf="showProperties">
+      <button (click)="showProperties = false;">CLOSE</button>
+      <div class="field">
+         <label>Name</label>
+         <input type="text" [(ngModel)]="mapData.title">
+      </div>
+
+      <div class="field">
+         <label>palette</label>
+         <input type="text" [(ngModel)]="mapData.palette" >
+      </div>
+
+      <div class="field">
+         <label>JSON</label>
+         <div class="codeViewer">
+               <code>
+                  <pre>
+                     {{ mapData | json }}
+                  </pre>
+               </code>
+         </div>
+      </div>
+   </div>
+</div>
