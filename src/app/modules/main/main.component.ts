@@ -1,4 +1,5 @@
-import { Component, ViewEncapsulation } from "@angular/core";
+import { Component, OnInit, ViewEncapsulation } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'main-component',
@@ -6,7 +7,17 @@ import { Component, ViewEncapsulation } from "@angular/core";
     styleUrls: ['./main.scss'],
     encapsulation: ViewEncapsulation.None
   })
-  export class MainComponent {
+  export class MainComponent implements OnInit {
+    
+    constructor(private _router: Router) {}
+
+    ngOnInit(): void {
+      
+    }
+
+    redirect(page) {
+      this._router.navigate([page]);
+    }
     title = 'game';
   }
   

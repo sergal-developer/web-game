@@ -53,7 +53,10 @@ editor-component {
      
      canvas {
         // outline: 1px solid #ddd;
-        background: #f4f8f9;
+      //   background: #f4f8f9;
+        background-image: repeating-linear-gradient(45deg, #cdcdcd 25%, transparent 25%, transparent 75%, #cdcdcd 75%, #cdcdcd), repeating-linear-gradient(45deg, #cdcdcd 25%, #e1e1e1 25%, #e1e1e1 75%, #cdcdcd 75%, #cdcdcd);
+        background-position: 0 0, 10px 10px;
+        background-size: 20px 20px;
      }
      
      .tileset-container {

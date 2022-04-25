@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: '', component: MainComponent },
   { path: 'editor', component: EditorComponent },
   { path: 'game', component: GameComponent },
+  { path: 'options', component: GameComponent },
 ];
 
 @NgModule({
